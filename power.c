@@ -50,13 +50,15 @@ static void touch_boost()
     int rc;
 
     if (client_sockfd < 0) {
-        ALOGE("%s: touchboost socket not created", __func__);
+        //don't trip.
+        //ALOGE("%s: touchboost socket not created", __func__);
         return;
     }
 
     rc = sendto(client_sockfd, "1", 1, 0, (const struct sockaddr *)&client_addr, sizeof(struct sockaddr_un));
     if (rc < 0) {
-        ALOGE("%s: failed to send: %s", __func__, strerror(errno));
+        //don't trip.
+        //ALOGE("%s: failed to send: %s", __func__, strerror(errno));
     }
 }
 
