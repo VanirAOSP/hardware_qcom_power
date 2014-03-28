@@ -1,6 +1,4 @@
-ifneq ($(filter msm8960 msm8974,$(TARGET_BOARD_PLATFORM)),)
-ifneq ($(TARGET_USES_CM_POWERHAL),true)
-ifneq ($(TARGET_PROVIDES_POWERHAL),true)
+ifneq ($(filter deb flo hammerhead mako,$(TARGET_DEVICE)),)
 ifneq ($(WITH_QC_PERF),true)
 
 LOCAL_PATH := $(call my-dir)
@@ -22,12 +20,10 @@ ifneq ($(TARGET_MPDECISION_BOOST_SOCKET),)
 LOCAL_CFLAGS += -DBOOST_SOCKET=\"$(TARGET_MPDECISION_BOOST_SOCKET)\"
 endif
 
-ifeq ($(TARGET_POWERHAL_NO_TOUCH_BOOST),true)
-LOCAL_CFLAGS += -DNO_TOUCH_BOOST
+ifeq ($(TARGET_POWERHAL_TOUCH_BOOST),true)
+LOCAL_CFLAGS += -DTOUCH_BOOST
 endif
 
 include $(BUILD_SHARED_LIBRARY)
-endif
-endif
 endif
 endif
