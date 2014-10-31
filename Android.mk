@@ -1,4 +1,4 @@
-ifneq ($(WITH_QC_PERF),true)
+ifneq ($(TARGET_HAVE_QC_PERF),true)
 ifeq ($(TARGET_POWERHAL_VARIANT),)
 ifneq ($(filter deb flo hammerhead mako,$(TARGET_DEVICE)),)
 
